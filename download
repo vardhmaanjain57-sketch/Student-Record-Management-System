@@ -1,0 +1,8 @@
+# Compiled program files
+student_manager
+student_manager.exe
+*.o
+
+# Optional local editor files
+.vscode/
+.idea/
