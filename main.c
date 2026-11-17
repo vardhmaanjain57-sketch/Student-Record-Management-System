@@ -1,11 +1,3 @@
-/*
- * Student Record Management System
- * Data structure: Singly Linked List
- * Language: C (C11)
- *
- * Features: Add, display, search, update, delete, sort, save and load.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +16,6 @@ typedef struct Student {
 
 static Student *head = NULL;
 
-/* Read a complete line safely, removing the trailing newline. */
 void read_line(const char *prompt, char *buffer, size_t size) {
     printf("%s", prompt);
 
@@ -35,7 +26,6 @@ void read_line(const char *prompt, char *buffer, size_t size) {
 
     buffer[strcspn(buffer, "\n")] = '\0';
 
-    /* Clear remaining input if the line was longer than the buffer. */
     if (strchr(buffer, '\0') == buffer + size - 1) {
         int ch;
         while ((ch = getchar()) != '\n' && ch != EOF) {
@@ -111,7 +101,6 @@ void save_records(void) {
     }
 
     while (current != NULL) {
-        /* Names containing tabs/newlines are rejected during input. */
         fprintf(file, "%d\t%s\t%.2f\n",
                 current->id, current->name, current->marks);
         current = current->next;
@@ -303,7 +292,6 @@ void delete_student(void) {
     printf("Student record deleted successfully.\n");
 }
 
-/* Bubble sort by marks in descending order. */
 void sort_students(void) {
     Student *i;
     Student *j;
